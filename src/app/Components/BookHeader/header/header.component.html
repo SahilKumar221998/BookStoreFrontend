@@ -1,0 +1,66 @@
+<div class="container">
+  <div class="book">
+    <div><img src="assets\education.png" alt="book" /></div>
+    <div><span class="bookstore-title">Bookstore</span></div>
+    <div class="search-bar">
+      <mat-icon>search</mat-icon>
+      <input
+        matInput
+        placeholder="Search"
+        [(ngModel)]="searchQuery"
+        (input)="filterBooks()"
+      />
+    </div>
+    <div class="account">
+      <button
+        mat-icon-button
+        [matMenuTriggerFor]="menu"
+        [class.clicked]="isClicked"
+        (click)="toggleClick()"
+      >
+        <mat-icon>account_circle</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu" class="menu" panelClass="customMenu">
+        <div *ngIf="isLoggedIn(); else loggedOut" class="menu">
+          <button mat-menu-item>
+            <span>Hello, {{ userName }}</span>
+          </button>
+          <button mat-menu-item (click)="logout()" class="logout">
+            Logout
+          </button>
+          <hr class="hr" />
+          <div class="bottomMenu">
+            <button mat-button (click)="openOrder()">
+              <mat-icon>assignment</mat-icon>
+              <!-- This is a material icon for 'My Orders' -->
+              My Orders
+            </button>
+
+            <button mat-button (click)="openWishList()">
+              <mat-icon>favorite</mat-icon>
+              <!-- This is a material icon for 'Wishlist' -->
+              Wishlist
+            </button>
+          </div>
+        </div>
+        <ng-template #loggedOut>
+          <p class="welcome">Welcome<br /></p>
+
+          <p class="orders">To access account and manage orders</p>
+          <br />
+
+          <button mat-menu-item routerLink="" class="login">
+            LOGIN/SIGNUP
+          </button>
+        </ng-template>
+      </mat-menu>
+    </div>
+
+    <div class="cart">
+      <button mat-icon-button (click)="openCart()">
+        <mat-icon>shopping_cart</mat-icon>
+        <span>{{ cartCount }}</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<app-header></app-header>
+<div class="Books">
+  <div class="head">Home/<span>My Wishlist</span></div>
+</div>
+<div class="wishlist">
+  <p>My Wishlist ({{ wishlistCount }})</p>
+</div>
+<div class="MainContainer">
+  <div class="Container" *ngFor="let item of wishlistItems">
+    <div><img [src]="item.BookImage" alt="{{ item.BookName }}" /></div>
+    <p id="tittle">{{ item.BookName }}</p>
+    <p id="author">by {{ item.AuthorName }}</p>
+    <span id="price">Rs {{ item.Price }}</span>
+    <span id="originalPrice">Rs {{ item.Price * 1.33 }}</span>
+    <p class="delete" (click)="removeFromWishlist(item.WishListId)">
+      <mat-icon>delete</mat-icon>
+    </p>
+  </div>
+</div>

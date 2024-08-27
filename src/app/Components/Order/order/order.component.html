@@ -1,0 +1,20 @@
+<app-header></app-header>
+<div class="Books">
+  <div class="head">Home/<span>My Order</span></div>
+</div>
+<div class="MainContainer">
+  <div class="Container" *ngFor="let order of orders">
+    <div><img [src]="order.bookImage" alt="{{ order.bookTitle }}" /></div>
+    <p id="tittle">{{ order.bookTitle }}</p>
+    <p id="author">by {{ order.bookAuthor }}</p>
+    <span id="price">Rs{{ order.bookPrice }}</span>
+    <span id="originalPrice">Rs.{{ order.bookPrice * 1.33 }}</span>
+    <mat-icon id="green-dot">fiber_manual_record </mat-icon>
+    <p id="order">Order Placed on {{ order.orderDate }}</p>
+  </div>
+</div>
+<div class="shoping">
+  <button mat-button color="primary" (click)="continue()">
+    CONTINUE SHOPPING
+  </button>
+</div>

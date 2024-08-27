@@ -40,3 +40,25 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Ignore all .log files
+*.log
+
+# Ignore the node_modules directory
+node_modules/
+
+# Ignore all .env files
+*.env
+
+# Ignore all files in the dist directory
+dist/
+
+# Ignore specific file
+secret.txt
+
+# Ignore everything in the config directory except the config.json file
+config/*
+!config/config.json
+
+# Ignore all .DS_Store files (common on macOS)
+.DS_Store
